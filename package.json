@@ -1,0 +1,19 @@
+{
+  "name": "interview-assistant",
+  "version": "0.1.0",
+  "private": true,
+  "description": "AI 面试助手 — 上传简历，大模型建像，模拟面试，严格评分",
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "concurrently -n server,web -c cyan,magenta \"npm:dev:server\" \"npm:dev:web\"",
+    "dev:server": "npm run dev -w apps/server",
+    "dev:web": "npm run dev -w apps/web",
+    "build": "npm run build -w apps/server && npm run build -w apps/web",
+    "start": "npm run start -w apps/server"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.6"
+  }
+}
